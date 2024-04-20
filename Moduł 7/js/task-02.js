@@ -1,23 +1,27 @@
+// Tablica zawierająca składniki
 const ingredients = [
-  'Potatoes',
-  'Mushrooms',
-  'Garlic',
-  'Tomatos',
-  'Herbs',
-  'Condiments',
+  "Potatoes",
+  "Mushrooms",
+  "Garlic",
+  "Tomatos",
+  "Herbs",
+  "Condiments",
 ];
 
-// Pobierz referencję do listy ul#ingredients
+// Pobranie referencji do listy ul#ingredients
 const ulIngredients = document.getElementById("ingredients");
 
-// Iteruj przez tablicę ingredients
-ingredients.forEach((ingredient) => {
-  // Utwórz nowy element li
+// Utworzenie tablicy elementów <li> za pomocą mapowania składników
+const listItems = ingredients.map(ingredient => {
+  // Utworzenie nowego elementu <li>
   const li = document.createElement("li");
-  // Ustaw zawartość tekstową elementu li na nazwę składnika
+  // Ustawienie zawartości tekstowej elementu <li> na nazwę składnika
   li.textContent = ingredient;
-  // Dodaj klasę item do elementu li
+  // Dodanie klasy "item" do elementu <li>
   li.classList.add("item");
-  // Dodaj element li do listy ul#ingredients
-  ulIngredients.appendChild(li);
+  // Zwrócenie utworzonego elementu <li> z aktualnym składnikiem
+  return li;
 });
+
+// Dodanie wszystkich elementów <li> do listy <ul>
+ulIngredients.append(...listItems);
